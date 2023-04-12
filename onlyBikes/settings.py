@@ -27,13 +27,13 @@ SECRET_KEY = 'django-insecure-wjo-g#axxo0b#93#dr62m6aczy=ss18g5&4y1&l&=$$^k5r6#y
 DEBUG = True
 
 ALLOWED_HOSTS = []
-AUTH_USER_MODEL = 'onlyBikesApp.User'
+AUTH_USER_MODEL = 'views.User'
 
 # Application definition
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'onlyBikesApp/static')
+    os.path.join(BASE_DIR, 'views/static')
 ]
 
 INSTALLED_APPS = [
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'onlyBikesApp.apps.OnlybikesappConfig',
+    'views.apps.OnlybikesappConfig',
     'social_django'
 ]
 

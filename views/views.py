@@ -139,7 +139,7 @@ def leaderboard(request):
 # -- Utility Functions --
 
 def add(request):
-    template = loader.get_template('onlyBikesApp/add.html')
+    template = loader.get_template('views/add.html')
     return HttpResponse(template.render({}, request))
 
 def addbike(request):
