@@ -1,7 +1,10 @@
-*.env
-notes.md
-.venv
+# Files to ignore
+.env
 .python-version
+notes.md
+start.sh
+
+# Folders to ignore
 .vscode
 __pycache__
-start.sh
+.venv
