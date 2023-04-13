@@ -1,43 +1,46 @@
+import os
+import cv2 
+import tensorflow as tf
+import numpy as np
+import threading
+
+from os import environ
+from matplotlib import pyplot as plt
+
+# Django imports
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import BikeModel
 from django.template import loader
 from django.urls import reverse
-from authlib.integrations.django_client import OAuth
 from django.conf import settings
 from django.shortcuts import redirect, render, redirect
 from django.urls import reverse
-from twilio.rest import Client
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required 
-from . models import User
-from .utils.utils import test_data
-from os import environ
-import cv2 
-import numpy as np
-from matplotlib import pyplot as plt
-import os
-import tensorflow as tf
-from object_detection.utils import label_map_util
-from object_detection.utils import visualization_utils as viz_utils
-from object_detection.builders import model_builder
-from object_detection.utils import config_util
-import matplotlib
-
 from django.views.decorators import gzip
 from django.http import StreamingHttpResponse
-import threading
-from . forms import UserForm, BikeForm
 from django.shortcuts import render
 from django.conf import settings
-from django.core.files.storage import FileSystemStorage
 from django.core.files.storage import default_storage
-###############################################################################################
+
+# OAuth imports 
+from authlib.integrations.django_client import OAuth
+from twilio.rest import Client
+
+# Object detection imports 
+from object_detection.utils import label_map_util, config_util, visualization_utils as viz_utils
+from object_detection.builders import model_builder
+
+from .models import BikeModel
+from .forms import UserForm
+from .models import User
+from .utils.utils import test_data
+from onlyBikes.settings import BASE_DIR
 
 
-# Auth0 Section
+# ----- Auth0 Section ----- 
+
 oauth = OAuth()
-
 oauth.register(
     "auth0",
     client_id=settings.SOCIAL_AUTH_AUTH0_KEY,
@@ -66,11 +69,9 @@ def logout(request):
     client_id = settings.SOCIAL_AUTH_AUTH0_KEY
     return_to = 'http://127.0.0.1:8000' # this can be current domain
     return redirect(f'https://{domain}/v2/logout?client_id={client_id}&returnTo={return_to}')
+  
 
-
-###############################################################################################    
-
-# TWILIO CUSTOMIZATION
+# ----- TWILIO CUSTOMIZATION -----
 
 twilio_sid = settings.TWILIO_SID
 twilio_auth = settings.TWILIO_AUTH
@@ -83,11 +84,8 @@ def testmessage():
     to='+18187978710'
     )
 
-    # print(message.sid)
 
-############################################################################################### 
-
-# Everything Else
+# ----- Routes -----
 
 def index(request):
     BikeModel.objects.all().delete()
@@ -135,8 +133,7 @@ def leaderboard(request):
         })
 
 
-
-# -- Utility Functions --
+# ----- Utility Functions -----
 
 def add(request):
     template = loader.get_template('views/add.html')
@@ -179,38 +176,23 @@ def update_profile(request):
     return HttpResponseRedirect(reverse('profile'))
 
 
-
-
-
-
-
-
-
-
-#############################################################################################
-
+# ----- Tensorflow functions -----
 
 MODEL_NAME = 'ssd_mobilenet_fpn_lite'
 PRETRAINED_MODEL_NAME = 'ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8'
 LABEL_MAP_NAME = 'label_map.pbtxt'
 
 paths = {
-    
-
-    'ANNOTATION_PATH': os.path.join('../annotation'),
-    'IMAGE_PATH': os.path.join('../onlyBikes', 'media'),
-    'MODEL_PATH': os.path.join('../tensormodel'),
-    'CHECKPOINT_PATH': os.path.join('../tensormodel',MODEL_NAME), 
+    'ANNOTATION_PATH': os.path.join(BASE_DIR, 'annotation'),
+    'IMAGE_PATH'     : os.path.join(BASE_DIR, 'media'),
+    'MODEL_PATH'     : os.path.join(BASE_DIR, 'tensormodel'),
+    'CHECKPOINT_PATH': os.path.join(BASE_DIR, 'tensormodel', MODEL_NAME), 
 }
-
 
 files = {
-    'PIPELINE_CONFIG':os.path.join('../tensormodel', MODEL_NAME, 'pipeline.config'),
-    'LABELMAP': os.path.join(paths['ANNOTATION_PATH'], LABEL_MAP_NAME)
+    'PIPELINE_CONFIG': os.path.join(paths['MODEL_PATH'], MODEL_NAME, 'pipeline.config'),
+    'LABELMAP'       : os.path.join(paths['ANNOTATION_PATH'], LABEL_MAP_NAME)
 }
-
-
-
 
 configs = config_util.get_configs_from_pipeline_file(files['PIPELINE_CONFIG'])
 detection_model = model_builder.build(model_config=configs['model'], is_training=False)
@@ -227,30 +209,6 @@ def detect_fn(image):
     return detections
 
 category_index = label_map_util.create_category_index_from_labelmap(files['LABELMAP'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def detect_bike(request):
     if request.method == 'POST':
@@ -314,27 +272,6 @@ def detect_bike(request):
     
     return render(request, 'detect.html')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @gzip.gzip_page
 def cam(request):
     try:
@@ -396,10 +333,6 @@ class VideoCamera(object):
         while True:
             cap = self.video
             (self.grabbed, self.frame) = cap.read()
-           
-            
-
-
 
 def gen(camera):
     while True:
