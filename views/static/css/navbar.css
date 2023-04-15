@@ -1,8 +1,45 @@
-nav {
+header {
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: auto;
+
     display: flex;
+    flex-direction: column;
 }
 
-#logo {
+nav {
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.nav-container {
+    display: block;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.nav-logo-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    margin-right: 0.5rem;
+    color: rgba(0,0,0,0.4);
+    font-weight: bold;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+    color: rgba(0,0,0,0.7);
+    border-bottom-color: rgba(0,0,0,0.7);
+}
+
+img {
     height: 3.5rem;
 }
 
