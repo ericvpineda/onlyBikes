@@ -1,40 +1,13 @@
 
-# Work Report
+# onlyBikes
 
-## Devs: 
-<ins> Robin Lee Simpson  </ins>
-<br></br>
-<ins> Shizuka </ins>
-<br></br>
-<ins> Eric Pineda </ins>
-<br></br>
+## Description
+- Bike rental website supplied by 
+
+## Developers: 
+<ins> Robin Simpson -- backend, machine learning </ins>
+<ins> Shizuka -- frontend </ins>
+<ins> Eric Pineda -- backend, frontend </ins>
 
 ## Features:
-
-- Not Implemented:
-
-
-<br><br>
-
-- Implemented:
-
-
-<br><br>
-
-- Partly implemented:
-
-
-<br><br>
-
-- Bugs
-
-
-
-<br><br>
-
-# Reflections:
-
-
-
-<br/><br/>
 

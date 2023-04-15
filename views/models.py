@@ -1,3 +1,4 @@
+# Define model classes for app (Collects data from database and send to user) 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 

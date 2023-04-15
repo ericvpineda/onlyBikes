@@ -1,3 +1,4 @@
+# Request/Response handler file (Note: This is not view/template hanndler)
 import os
 import cv2 
 import tensorflow as tf

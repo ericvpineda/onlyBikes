@@ -37,15 +37,15 @@ STATICFILES_DIRS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', # interface for interact with data 
+    'django.contrib.auth', # authenticating users 
+    'django.contrib.contenttypes', 
+    'django.contrib.messages', # shows one time notifications to user
+    'django.contrib.staticfiles', # serves static files (i.e. images, css files, etc)
     'onlyBikes',
     'views.apps.OnlybikesappConfig',
-    'social_django'
+    'social_django',
+    'livereload'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'onlyBikes.urls'
