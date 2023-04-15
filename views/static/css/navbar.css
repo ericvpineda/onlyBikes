@@ -33,6 +33,7 @@ nav {
     margin-right: 0.5rem;
     color: rgba(0,0,0,0.4);
     font-weight: bold;
+    font-size: 1.05rem;
     border-bottom: 0.25rem solid transparent;
 }
 
@@ -44,4 +45,5 @@ nav {
 img {
     height: 3.5rem;
 }
+
 
