@@ -1,64 +1,80 @@
-{% extends 'layout/base.html' %}
-{% load static %}
+{% extends 'layout/base.html' %} {% load static %} {% block header %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}" />
+{% endblock %} {% block body %}
 
-{% block header %}
-    <link rel="stylesheet" href="{% static 'css/home.css'%}">
-{% endblock  %}
-
-{% block body %}
-
-    <div class="hero-image">
-        <div class="hero-image-text-container">
-            <div class="hero-image-text-1">
-                Rent, ride, and compete to save the environment! &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-                Rent, ride, and compete to save the environment! &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-                Rent, ride, and compete to save the environment!
-            </div>
-            
-        </div>
-    </div>     
-
-    <div class="explore-button-container"> 
-        <a class="btn btn-dark" href="/index">Explore Bikes</a>
+<div class="hero-image">
+  <div class="hero-image-text-container">
+    <div class="hero-image-text-1">
+      Rent, ride, and compete to save the environment!
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Rent, ride, and compete to save the
+      environment! &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Rent, ride, and compete to
+      save the environment!
     </div>
+  </div>
+  <div class="explore-button-container">
+    <a class="btn btn-dark" href="/index">Explore Bikes</a>
+  </div>
+</div>
 
-    <div class="features">
-        <ul>
-            <li id="feature-1">
-                <img src="{% static '/img/magnify_glass.jpg' %}" alt="">
-                <h4>Easy to Search</h4>
-                <p>Find local bikes to rent for personal or professional use. Bikes come in new or used conditions. Rate bikes to help infom yourself and others of a bikes condition.</p>
-            </li>
-            <li id="feature-2">
-                <img src="{% static '/img/pay.jpg' %}" alt="">
-                <h4>Pay as you go</h4>
-                <p>Rent out for up to 7 days. A fixed rate per hour is applied to your bill at the end of the session. Please see terms and conditions for more information.</p>
-            </li>
-            <li id="feature-3">
-                <img src="{% static '/img/heart.jpg' %}" alt="">
-                <h4>Share for Discounts</h4>
-                <p>For every 5 friends that sign up with your code, receive discounts and coupons to local healthy resturants</p>
-            </li>
-            <div class="clear"></div>
-        </ul>
+<div class="features-container">
+  <li id="feature-1">
+    <img src="{% static '/img/magnify_glass.jpg' %}" alt="" />
+    <h4>Easy to Search</h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <p>
+        Find local bikes to rent for personal or professional use. Bikes come in
+        new or used conditions. Rate bikes to help infom yourself and others of
+        a bikes condition.
+      </p>
     </div>
-
-    <div class="container primary-content">
-        <article>
-            <h3 class="mb-0">Save the lonely bikes!</h3>
-            <div class="primary-content-text">
-                <div>
-                    <p>To aid the environment, we created a system for scanning stranded bikes without owners. Take pictures of this bikes of these bikes to gain rewards and compete with your friends or public.</p>
-                </div>
-            </div>
-            <img src="{% static '/img/lonely_bike.jpg' %}" alt="">
-        </article>
+  </li>
+  <li id="feature-2">
+    <img src="{% static '/img/pay.jpg' %}" alt="" />
+    <h4>Pay as you go</h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <p>
+        Rent out for up to 7 days. A fixed rate per hour is applied to your bill
+        at the end of the session. Please see terms and conditions for more
+        information.
+      </p>
     </div>
-
-    <div class="container call-to-action">
-        <h3>Let's get you started!</h3>
-        <p>Signing up only takes a 2 minutes. Follow our tutorial to get you started and riding as soon as possible.</p>
-        <a class="btn btn-outline btn-outline-dark" href="/login/auth0">Sign Up</a>
+  </li>
+  <li id="feature-3">
+    <img src="{% static '/img/heart.jpg' %}" alt="" />
+    <h4>Share for Discounts</h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <p>
+        For every 5 friends that sign up with your code, receive discounts and
+        coupons to local healthy resturants
+      </p>
     </div>
+  </li>
+  <div class="clear"></div>
+</div>
 
-{% endblock  %}
+<div class="primary-content">
+  <article>
+    <h3 class="mb-0">Save the lonely bikes!</h3>
+    <div class="primary-content-text">
+      <div>
+        <p>
+          To aid the environment, we created a system for scanning stranded
+          bikes without owners. Take pictures of this bikes of these bikes to
+          gain rewards and compete with your friends or public.
+        </p>
+      </div>
+    </div>
+    <img id="primary-content-image" src="{% static '/img/lonely_bike.jpg' %}" alt="" />
+  </article>
+</div>
+
+<div class="call-to-action">
+  <h3>Let's get you started!</h3>
+  <p>
+    Signing up only takes a 2 minutes. Follow our tutorial to get you started
+    and riding as soon as possible.
+  </p>
+  <a class="btn btn-outline btn-outline-dark" href="/login/auth0">Sign Up</a>
+</div>
+
+{% endblock %}
