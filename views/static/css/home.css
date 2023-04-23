@@ -126,26 +126,21 @@
 }
 
 .primary-content {
-  margin-bottom: 8rem;
+  margin-bottom: 1rem;
 
-  /* background-color: #f8fafa; */
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-items: center;
+
+  text-align: center;
 }
 
 .primary-content h3 {
   display: block;
-  margin: 0 auto 2rem auto;
   width: 25rem;
   padding: 0 0 2rem 0;
-}
-
-.primary-content img {
-  margin-top: 1rem;
-  width: 0 auto;
 }
 
 .primary-content-text div {
@@ -162,13 +157,18 @@
   width: 80%;
 }
 
-#primary-content-image {
-  height: 40rem;
-  width: auto;
+.primary-content-image {
+  height: 36rem;
+  width: 100%;
+
+  margin-bottom: 6rem;
+
+  background: url("/static/img/lonely_bike.jpg") no-repeat center;
+  object-fit: cover;
 }
 
 .call-to-action {
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 
   display: flex;
   flex-direction: column;

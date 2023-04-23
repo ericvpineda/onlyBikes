@@ -1,4 +1,9 @@
-<footer class="container pt-4 d-flex justify-content-center" style="background-color: #f8f9fa;">
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/footer.css'%}"/>
+{% endblock%}
+
+<footer class="footer-container">
     <div class="row d-flex justify-content-between">
         <div class="col-5 footer-info">
             <p>Copyright 2022 onlyBikes. <br> All rights reserved.</p>
