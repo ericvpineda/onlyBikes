@@ -1,3 +1,42 @@
-h1 {
-    /* background-color: blue; */
+.outer-container {
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    margin-top: 3rem;
+    margin-bottom: 4rem;
 }
+
+.title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.item-container {
+    text-decoration: none;
+    color: black;
+}
+
+.item-container:hover {
+    color: black;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.item-image {
+    /* Prevents text from overlapping image  */
+    width: 100%;
+    height: 100%;
+}
+
+.nav-link.index {
+    color: rgba(0, 0, 0, 0.7);
+    border-bottom-color: rgba(0, 0, 0, 0.7);
+  }

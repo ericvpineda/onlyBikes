@@ -42,7 +42,7 @@ test_bikes = [{
     "location" : "Compton, CA",
     "rescued_long" : -115.544570641554,
     "rescued_lat" : 43.394358469890,
-    "image" : "https://cdn.pocket-lint.com/r/s/970x/assets/images/152686-fitness-trackers-review-s3-vanmoof-2nd-set-image1-hden5uz0i9.jpg",
+    "image" : "https://images.immediate.co.uk/production/volatile/sites/21/2021/09/VanMoof-3-01-0c23848.jpg?quality=90&resize=768,574",
     "description" : "VanMoof has fostered something of a following amongst gear heads, and that approval is quickly extending to casual riders too. Sleek and stylish, the S3 e-bike boasts four speed settings, making hills nearly as easy as straightaways.",
 },{
     "user" : "Lovemore Dumi",
